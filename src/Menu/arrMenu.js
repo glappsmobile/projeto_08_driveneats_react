@@ -1,6 +1,7 @@
-const arrMenu = [
+const response = [
     {
-        type: "Prato",
+        name: "prato",
+        genre: "m",
         items: [
             { name: "Strogonoff", id: "strogonoff", description: "Strogonoff de frango, batata palha e arroz", price: "17,00" },
             { name: "Baião de dois", id: "baiao-de-dois", description: "", price: "23,00" },
@@ -11,7 +12,8 @@ const arrMenu = [
     }
     ,
     {
-        type: "Bebida",
+        name: "bebida",
+        genre: "f",
         items: [
             { name: "Coca", id: "coca", description: "300ml", price: "5,00" },
             { name: "Dolly", id: "dolly", description: "300ml", price: "0,50" },
@@ -22,7 +24,8 @@ const arrMenu = [
     }
     ,
     {
-        type: "Sobremesa",
+        name: "sobremesa",
+        genre: "f",
         items: [
             { name: "Pudim", id: "pudim", description: "1 Fatia", price: "2,50" },
             { name: "Salada de frutas", id: "salada-de-frutas", description: "", price: "4,00" },
@@ -32,5 +35,14 @@ const arrMenu = [
         ]
     }
 ]
+
+const arrMenu = response.map((category) => {
+    return {
+        ...category,
+        items: category.items.map((items, index) => {
+            return { ...items, isSelected: false, quantity: 0, uid: `${category.name}-${index}`}
+        })
+    }
+})
 
 export default arrMenu;

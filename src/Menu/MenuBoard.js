@@ -1,12 +1,11 @@
 import MenuList from './MenuList'
-import arrMenu from './arrMenu';
 
-const Menu = () =>  { 
+const MenuBoard = ({orders, updateOrder}) =>  { 
     return (
         <div>
-            { arrMenu.map((menuList) => <MenuList {...menuList} />) }
+            {orders.map((order, index) => <MenuList pos={`${index+1}/${orders.length}`} key={index} {...order} updateOrder={updateOrder} />) }
         </div>
     ) 
 }
 
-export default Menu;
+export default MenuBoard;

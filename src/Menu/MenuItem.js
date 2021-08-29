@@ -1,13 +1,19 @@
-const MenuItem = (props) => {
+import React, {useState} from 'react';
+
+const MenuItem = ({name, id, description, price}) => {
+    const [selected, setSelected] = useState(false);
 
     return (
-            <li class={`card-option ${props.type} ${0}`} onclick="select(this)">
-                <img src={`images/${props.id}.jpg`} alt={props.name} />
-                <p><strong>{props.name}</strong></p>
-                <p class="txt-option-desc">{props.description}</p>
-                <p class="txt-black">R$ {props.price}</p>
-                <ion-icon name="checkmark-circle" class="check-icon"></ion-icon>
-            </li>
+        <li 
+            className={`card-option ${selected && "selected"}`} 
+            onClick={() =>  setSelected(!selected)}
+        >
+            <img src={`images/${id}.jpg`} alt={name} />
+            <strong>{name}</strong>
+            <p class="txt-option-desc">{description}</p>
+            <p class="txt-black">R$ {price}</p>
+            <ion-icon name="checkmark-circle" class="check-icon"></ion-icon>
+        </li>
     )
 }
 
