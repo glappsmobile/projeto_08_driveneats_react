@@ -40,6 +40,10 @@ const App = () => {
 
     return (
         <div>
+            <header>
+                <h1>DrivenEats</h1>
+                <p>Sua comida em 6 minutos</p>
+            </header>
             <MenuBoard orders={orders} updateOrders={updateOrders} />
             <div class="ctn-button">
                 <button class="btn-buy" onClick={() => console.log(selectedItems)} disabled={!isPurchaseValid} >
