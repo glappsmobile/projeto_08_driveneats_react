@@ -1,4 +1,4 @@
-import './Counter.css';
+import './ItemCounter.css';
 
 const Button = ({label, type, action}) => (
     <div className={`button-counter ${type}`} onClick={action}>

@@ -1,4 +1,5 @@
 import MenuItem from './MenuItem';
+import './MenuList.css'
 
 const MenuList = ({name, pos, genre, items, updateOrders}) => {
 
@@ -17,7 +18,7 @@ const MenuList = ({name, pos, genre, items, updateOrders}) => {
     return (
         <div>
             <h2>{getIntro()}, {genre === "f" ? "sua" : "seu"} {name}</h2>
-            <ul class="ctn-options">
+            <ul className="container-options">
                 {items.map((item, index) => <MenuItem {...item} categoryName={name} key={index} updateOrders={updateOrders} />)}
             </ul>
         </div>

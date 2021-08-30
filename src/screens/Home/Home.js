@@ -1,5 +1,6 @@
 import MenuBoard from './components/MenuBoard/MenuBoard';
-import Footer from './components/Footer';
+import BottomBar from './components/BottomBar';
+import './Home.css'
 
 const Home = ({selectedItems, setSelectedItems, orders, setOrders, isPurchaseValid, setIsPurchaseValid}) => {
 
@@ -49,7 +50,7 @@ const Home = ({selectedItems, setSelectedItems, orders, setOrders, isPurchaseVal
                 orders={orders}
                 updateOrders={updateOrders}
             />
-            <Footer
+            <BottomBar
                 selectedItems={selectedItems}
                 isPurchaseValid={isPurchaseValid}
             />

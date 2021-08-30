@@ -3,7 +3,7 @@ import Revision from './screens/Revision/Revision'
 import Header from './components/Header';
 import React, { useState } from 'react'
 import {Route, Switch } from 'react-router-dom';
-import arrMenu from './screens/Home/components/MenuBoard/arrMenu';
+import arrMenu from './screens/Home/components/MenuBoard/arrOrders';
 import './css/reset.css'
 import './css/style.css'
 

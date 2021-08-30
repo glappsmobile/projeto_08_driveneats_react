@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
-import './Footer.css'
+import './BottomBar.css'
 
-const Footer = ({isPurchaseValid}) => {
+const BottomBar = ({isPurchaseValid}) => {
     return (
-    <div class="ctn-button">
-
-        <button class="btn-buy" disabled={!isPurchaseValid} >
+    <div className="bottom-bar">
+        <button className="btn-buy" disabled={!isPurchaseValid} >
             {isPurchaseValid? (
                 <Link to={'/revision'} className="router-link btn-buy">
                     <p>Selecione os 3 itens para fechar o pedido</p>
@@ -19,4 +18,4 @@ const Footer = ({isPurchaseValid}) => {
     )
 }
 
-export default Footer;
+export default BottomBar;

@@ -1,0 +1,15 @@
+.container-options {
+    display: flex;
+    overflow-x: scroll;
+    height: 250px;
+    margin-top: 10px;
+}
+
+.container-options > :first-child {
+    margin-left: 20px;
+}
+
+.container-options > :last-child {
+    margin-right: 0;
+}
+
