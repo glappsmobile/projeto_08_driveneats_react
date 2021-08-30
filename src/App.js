@@ -1,9 +1,11 @@
-import Home from './Home';
-import Revision from './Revision'
-import Header from './Header';
+import Home from './screens/Home/Home';
+import Revision from './screens/Revision/Revision'
+import Header from './components/Header';
 import React, { useState } from 'react'
 import {Route, Switch } from 'react-router-dom';
-import arrMenu from './components/MenuBoard/arrMenu';
+import arrMenu from './screens/Home/components/MenuBoard/arrMenu';
+import './css/reset.css'
+import './css/style.css'
 
 const App = () => {
     const [selectedItems, setSelectedItems] = useState([]);

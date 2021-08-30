@@ -1,6 +1,6 @@
 import './MenuItem.css';
 import Counter from './Counter'
-import toBRL from '../../helpers/toBRL'
+import toBRL from '../../../../helpers/toBRL'
 
 const MenuItem = ({name, id, uid, description, price, isSelected, quantity, updateOrders, categoryName}) => {
     return (
