@@ -3,40 +3,52 @@ import MenuBoard from './Menu/MenuBoard';
 import arrMenu from './Menu/arrMenu';
 
 const App = () => {
-    const [orders, setOrders] = useState(arrMenu)
+    const [orders, setOrders] = useState(arrMenu);
+    const [isPurchaseValid, setIsPurchaseValid] = useState(false);
+    const [selectedItems, setSelectedItems] = useState([]);
 
-    const getPointerByUid = (uid) => {
-        const splitData = uid.split('-');
-        return { categoryName: splitData[0], index: splitData[1]}
-    }
-
-    const updateOrder = ({uid, isSelected, quantity}) => {
-        const pointer = getPointerByUid(uid);
-        setOrders(orders.map((category) => {
-            let updatedCategory = {}
-            if (category.name === pointer.categoryName){
-                updatedCategory.items = category.items.map((item, index) => {
-                    if (index === pointer.index){
+    const updateOrders = ({uid, isSelected, quantity, categoryName}) => {
+        const updatedOrders = orders.map((category) => {
+            let updatedCategory = { ...category }
+            if (category.name === categoryName) {
+                updatedCategory.items = category.items.map(item => {
+                    if (item.uid === uid) {
                         return { ...item, isSelected, quantity }
                     } else {
-                        return { ...item}
+                        return { ...item }
                     }
                 });
-            } else {
-                updatedCategory = { ...category }
             }
             return updatedCategory;
-        }))
+        });
+
+        setOrders(updatedOrders);
+        
+        let counterSelectedCategories = 0;
+        const tempSelectedItems = getSelectedItems(updatedOrders);
+        tempSelectedItems.forEach((category) => {
+            if (category.length > 0) {counterSelectedCategories++}
+        });
+
+        setIsPurchaseValid(counterSelectedCategories === tempSelectedItems.length);
+        setSelectedItems(tempSelectedItems);
     }
 
+    const getSelectedItems = (updatedOrders) => { 
+        return updatedOrders.map((category) => category.items.filter((item) => item.isSelected === true));
+    }
 
     return (
         <div>
-            <MenuBoard orders={orders} updateOrder={updateOrder} />
+            <button onClick={getSelectedItems}>{`${isPurchaseValid}`}</button>
+            <MenuBoard orders={orders} updateOrders={updateOrders} />
+            <div class="ctn-button">
+                <button class="btn-buy" onClick={() => console.log(selectedItems)} disabled={!isPurchaseValid} >
+                    <p>Selecione os 3 itens para fechar o pedido</p>
+                </button>
+            </div>
         </div>
     )
 }
 
 export default App;
-
-//if (category.name === pointer.categoryName)

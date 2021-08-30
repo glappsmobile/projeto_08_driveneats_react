@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
-
-const MenuItem = ({name, id, description, price}) => {
-    const [selected, setSelected] = useState(false);
-
+const MenuItem = ({name, id, uid, description, price, isSelected, quantity, updateOrders, categoryName}) => {
     return (
         <li 
-            className={`card-option ${selected && "selected"}`} 
-            onClick={() =>  setSelected(!selected)}
+            className={`card-option ${isSelected && "selected"}`} 
+            onClick={() =>  updateOrders({
+                uid,
+                categoryName,
+                isSelected: !isSelected, 
+                quantity: (quantity || 1)
+            })}
         >
             <img src={`images/${id}.jpg`} alt={name} />
             <strong>{name}</strong>

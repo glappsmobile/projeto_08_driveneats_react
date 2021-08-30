@@ -1,9 +1,9 @@
 import MenuList from './MenuList'
 
-const MenuBoard = ({orders, updateOrder}) =>  { 
+const MenuBoard = ({orders, updateOrders}) =>  { 
     return (
         <div>
-            {orders.map((order, index) => <MenuList pos={`${index+1}/${orders.length}`} key={index} {...order} updateOrder={updateOrder} />) }
+            {orders.map((order, index) => <MenuList pos={`${index+1}/${orders.length}`} key={index} {...order} updateOrders={updateOrders} />) }
         </div>
     ) 
 }
