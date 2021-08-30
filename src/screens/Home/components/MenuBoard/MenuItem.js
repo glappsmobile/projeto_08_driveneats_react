@@ -3,6 +3,7 @@ import Counter from './Counter'
 import toBRL from '../../../../helpers/toBRL'
 
 const MenuItem = ({name, id, uid, description, price, isSelected, quantity, updateOrders, categoryName}) => {
+
     return (
         <li className={`card-option ${isSelected && "selected"}`} >
             <div 
@@ -10,7 +11,7 @@ const MenuItem = ({name, id, uid, description, price, isSelected, quantity, upda
                 onClick={() => updateOrders({
                     uid,
                     categoryName,
-                    isSelected: !isSelected,
+                    isSelected: true,
                     quantity: (quantity || 1)
                 })}
             />

@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import './Revision.css';
 
 const Revision = ({selectedItems}) => {
-
     if (selectedItems.length === 0) { 
         window.location.href = "../"
         return;
     } 
-
+    
     function sendToWhatsapp() {
         let message = "Olá, gostaria de fazer o pedido: \n";
         selectedItems.forEach(({quantity, name, price}, i) => {

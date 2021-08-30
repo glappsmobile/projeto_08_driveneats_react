@@ -8,17 +8,19 @@ const Button = ({label, type, action}) => (
 
 const Counter = ({updateOrders, categoryName, quantity, uid}) => {
 
-    const setNewQuantity = (newQuantity) => {
-        updateOrders({categoryName, quantity:newQuantity, uid, isSelected: true})
+    const setNewQuantity = (newQuantity, isSelected) => {
+        updateOrders({categoryName, quantity:newQuantity, uid, isSelected})
     }
 
     const addQuantity = () => {
-        setNewQuantity(quantity+1)
+        setNewQuantity((quantity+1), true)
     }
 
     const subtractQuantity = () => {
         if (quantity > 1) {
-            setNewQuantity(quantity-1)
+            setNewQuantity((quantity-1), true)
+        } else {
+            setNewQuantity(0, false)
         }
     }
 
@@ -27,7 +29,7 @@ const Counter = ({updateOrders, categoryName, quantity, uid}) => {
             <Button 
                 label="-" 
                 key="minus" 
-                type={`minus ${(quantity === 1) && "disabled"}`} 
+                type={`minus`} 
                 action={subtractQuantity} 
             />
             <span> {quantity} </span>
