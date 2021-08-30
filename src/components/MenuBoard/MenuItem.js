@@ -1,5 +1,6 @@
 import './MenuItem.css';
 import Counter from './Counter'
+import toBRL from '../../helpers/toBRL'
 
 const MenuItem = ({name, id, uid, description, price, isSelected, quantity, updateOrders, categoryName}) => {
     return (
@@ -18,7 +19,7 @@ const MenuItem = ({name, id, uid, description, price, isSelected, quantity, upda
             <p className="txt-option-desc">{description}</p>
 
             <footer>
-                <p className="txt-black">R$ {price}</p>
+                <p className="txt-black">{toBRL(price)}</p>
                 <Counter 
                     updateOrders={updateOrders} 
                     categoryName={categoryName}
