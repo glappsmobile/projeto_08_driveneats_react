@@ -23,7 +23,7 @@ const App = () => {
         });
 
         setOrders(updatedOrders);
-        
+
         let counterSelectedCategories = 0;
         const tempSelectedItems = getSelectedItems(updatedOrders);
         tempSelectedItems.forEach((category) => {
@@ -40,7 +40,6 @@ const App = () => {
 
     return (
         <div>
-            <button onClick={getSelectedItems}>{`${isPurchaseValid}`}</button>
             <MenuBoard orders={orders} updateOrders={updateOrders} />
             <div class="ctn-button">
                 <button class="btn-buy" onClick={() => console.log(selectedItems)} disabled={!isPurchaseValid} >
