@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
-import MenuBoard from './Menu/MenuBoard';
-import arrMenu from './Menu/arrMenu';
+import MenuBoard from './components/MenuBoard/MenuBoard';
+import arrMenu from './components/MenuBoard/arrMenu';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App = () => {
     const [orders, setOrders] = useState(arrMenu);
@@ -25,7 +27,13 @@ const App = () => {
         setOrders(updatedOrders);
 
         let counterSelectedCategories = 0;
-        const tempSelectedItems = getSelectedItems(updatedOrders);
+
+        const tempSelectedItems = updatedOrders.map(
+            category => 
+            category.items.filter(item => 
+            item.isSelected === true)
+        );
+        
         tempSelectedItems.forEach((category) => {
             if (category.length > 0) {counterSelectedCategories++}
         });
@@ -34,23 +42,18 @@ const App = () => {
         setSelectedItems(tempSelectedItems);
     }
 
-    const getSelectedItems = (updatedOrders) => { 
-        return updatedOrders.map((category) => category.items.filter((item) => item.isSelected === true));
-    }
-
     return (
-        <div>
-            <header>
-                <h1>DrivenEats</h1>
-                <p>Sua comida em 6 minutos</p>
-            </header>
-            <MenuBoard orders={orders} updateOrders={updateOrders} />
-            <div class="ctn-button">
-                <button class="btn-buy" onClick={() => console.log(selectedItems)} disabled={!isPurchaseValid} >
-                    <p>Selecione os 3 itens para fechar o pedido</p>
-                </button>
-            </div>
-        </div>
+        <>
+            <Header />
+            <MenuBoard 
+                orders={orders} 
+                updateOrders={updateOrders} 
+            />
+            <Footer 
+                selectedItems={selectedItems} 
+                isPurchaseValid={isPurchaseValid}
+            />
+        </>
     )
 }
 
