@@ -16,7 +16,7 @@ const MenuList = ({name, pos, genre, items, updateOrders}) => {
     }
 
     return (
-        <div>
+        <div className="menu-section">
             <h2>{getIntro()}, {genre === "f" ? "sua" : "seu"} {name}</h2>
             <ul className="container-options">
                 {items.map((item, index) => <MenuItem {...item} categoryName={name} key={index} updateOrders={updateOrders} />)}
