@@ -1,0 +1,22 @@
+.card-option footer {
+    position: absolute;
+    right: 0;
+    bottom: 13px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.card-option .click-holder {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.card-option {
+    -webkit-tap-highlight-color: transparent;
+}
+
